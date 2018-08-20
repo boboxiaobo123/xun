@@ -154,7 +154,7 @@ section{
 .context{
     position: relative;
     width: 62.5%;
-    margin-top: 4%;
+    margin-top: 7.5%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -204,57 +204,7 @@ section{
     background-color: #021c59;
 }
 
-.context .companyInfo{
-    width: 100%;
-    min-width: 590px;
-    text-align: center;
-}
-.context .companyInfo .viewer{
-    display: inline-block;
-    width: 49%;
-    vertical-align: top;
-    margin-top: 6%;
-    min-width: 290px;
-    overflow: auto;
-}
-
-.context .companyInfo .viewer .outline{
-    height: 240px;
-    display: flex;
-    justify-content:center;
-    align-items:Center;
-}
-
-.context .companyInfo .viewer .outline img{
-    width: 100%;
-}
-
-.context .companyInfo .viewer .outline p{
-    font-family: PingFangSC-Regular,sans-serif;
-    font-size: 0.8rem;
-    font-weight: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: 0;
-    color: #333333;
-    text-align: left;
-    width: 100%;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
-}
-
-.context .structureImg{
-    width: 100%;
-    margin-top:6%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.context .structureImg img{
-    width: 100%;
-}
-
-.context p{
+.context .investmentP{
     font-family: PingFangSC-Regular,sans-serif;
     font-size: 1rem;
     font-weight: normal;
@@ -262,22 +212,179 @@ section{
     line-height: 3;
     letter-spacing: 0;
     color: #999999;
+    margin-top:6%;
+    margin-bottom: 3.7%;
 }
 
-.companyDetail{
+/*investment css*/
+
+.investment{
+    border: 1px solid red;
+    position: relative;
     width: 100%;
-    margin-top: 3.75%;
+    margin-top: 5%;
+
 }
 
-.companyDetail img{
+.investment .header{
+    border: 1px solid red;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.investment .header .Chinese{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #021c59;
+    text-align: center;
+}
+
+.investment .header .English{
+    font-family: STSongti-SC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #021c59;
+    display: inline;
+}
+
+.investment .header .line1{
+    width: 9rem;
+    height: 1px;
+    background-color: #021c59;
+    display: inline-block;
+}
+
+.investment .header .line2{
+    width: 9rem;
+    height: 1px;
+    background-color: #021c59;
+    display: inline-block;
+}
+
+.investment .context{
+    border: 1px solid red;
+    width: 62.5%;
+    min-width: 715px;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.investment .context .header{
+    background-color: #021c59;;
+}
+
+.investment .context .left{
+    border: 1px solid red;
+    width: 37.2%;
+    display: inline-block;
+    height: 29rem;
+    vertical-align: top;
+    background-color: #021c59;
+    display: inline-block;
+    overflow: auto;
+}
+
+.investment .context .right{
+    border: 1px solid red;
+    width: 58.5%;
+    display: inline-block;
+    margin-left: 3%;
+    height: 29rem;
+    vertical-align: top;
+    background-color: #021c59;
+    overflow: auto;
+}
+
+.investment .context .left .header{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 13.3%;
+}
+
+.investment .context .left .line{
+    width: 17.857%;
+    height: 5px;
+    margin-left: 13.3%;
+    margin-top: 7.143%;
+    background-color: #ffffff;
+}
+
+.investment .context .left .text{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    padding-left: 13.3%;
+    width: 71.43%;
+    margin-top: 14.286%;
+
+}
+
+.investment .context .right .header{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 9.09%;
+}
+
+.investment .context .right .line{
+    width: 11.363%;
+    height: 5px;
+    background-color: #ffffff;
+    margin-left: 9.09%;
+    margin-top: 4.54%;
+}
+
+.investment .context .right .text{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    padding-left: 9.09%;
+    width: 71.43%;
+    margin-top: 9.09%;
+}
+/*end*/
+
+.investmentImg{
+    width: 100%;
+    margin-top: 5%;
+}
+
+.investmentImg img{
     width: 100%;
 }
 
-.advancedImg img{
-    width: 100%;
-    margin-top: 6%;
-    margin-bottom: 6%;
-}
 
 footer{
     border: 1px solid red;

@@ -21,6 +21,12 @@ h1,h2,p,ul {
     -webkit-padding-start: 0;
 }
 
+.English a:-webkit-any-link {
+    color: #666666;;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 header .headerText{
     border: 1px solid greenyellow;
     position: relative;
@@ -48,6 +54,7 @@ header .headerText .English{
     line-height: 1rem;
     letter-spacing: 0;
     color: #666666;
+    text-decoration: none;
 }
 
 header nav{

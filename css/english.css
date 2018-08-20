@@ -6,10 +6,6 @@ body{
     width: 100%;
 }
 
-div,p{
-    border: 1px solid red;
-}
-
 header{
     border: 1px solid black;
     position: relative;
@@ -26,7 +22,7 @@ h1,h2,p,ul {
 }
 
 .English a:-webkit-any-link {
-    color: #666666;;
+    color: #666666;
     cursor: pointer;
     text-decoration: none;
 }
@@ -61,6 +57,8 @@ header .headerText .English{
     text-decoration: none;
 }
 
+
+
 header nav{
     border: 1px solid black;
     position: relative;
@@ -82,10 +80,6 @@ header nav ul li{
     text-align: center;
 }
 
-header li.active{
-    border-bottom: solid 1px #021c59;
-}
-
 header nav ul li a{
     font-family: PingFangSC-Medium,sans-serif;
     font-size: 1rem;
@@ -97,6 +91,10 @@ header nav ul li a{
     text-decoration:none;
 }
 
+header li.active{
+    border-bottom: solid 1px #021c59;
+}
+
 header .headerPic{
     border: 1px solid red;
     position: relative;
@@ -105,7 +103,6 @@ header .headerPic{
     background-image: url(/xun/img/pic1.png);
     background-size: 100%;
     text-align: center;
-    overflow: auto;
 }
 
 header .headerPic h1{
@@ -147,11 +144,10 @@ section{
     border: 1px solid red;
     position: relative;
     width: 100%;
-    /*min-width: 700px;*/
-    overflow: auto;
+    min-width: 700px;
 }
 
-.context{
+.aboutUs{
     position: relative;
     width: 62.5%;
     margin-top: 4%;
@@ -159,15 +155,24 @@ section{
     margin-right: auto;
 }
 
-.header{
-    border: 1px solid red;
+.contactUs{
     position: relative;
+    width: 62.5%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contactUs .header{
+    border: 1px solid red;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-.header .Chinese{
+.contactUs .header .Chinese{
     font-family: PingFangSC-Semibold,sans-serif;
     font-size: 2rem;
     font-weight: normal;
@@ -177,107 +182,51 @@ section{
     color: #021c59;
 }
 
-.header .English{
-    display: inline;
+.contactUs .header .English{
     font-family: STSongti-SC-Regular,sans-serif;
     font-size: 1rem;
     font-weight: normal;
     font-stretch: normal;
-    line-height: 1;
+    line-height: 2;
     letter-spacing: 0;
     color: #021c59;
+    display: inline;
 }
 
-.header .line1{
-    display: inline-block;
+.contactUs .header .line1{
     width: 9rem;
     height: 1px;
-    left: 0;
     background-color: #021c59;
+    display: inline-block;
 }
 
-.header .line2{
-    display: inline-block;
+.contactUs .header .line2{
     width: 9rem;
     height: 1px;
-    left: 0;
     background-color: #021c59;
-}
-
-.context .companyInfo{
-    width: 100%;
-    min-width: 590px;
-    text-align: center;
-}
-.context .companyInfo .viewer{
     display: inline-block;
-    width: 49%;
-    vertical-align: top;
-    margin-top: 6%;
-    min-width: 290px;
-    overflow: auto;
 }
 
-.context .companyInfo .viewer .outline{
-    height: 240px;
-    display: flex;
-    justify-content:center;
-    align-items:Center;
-}
-
-.context .companyInfo .viewer .outline img{
+.contactUs .context{
     width: 100%;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
 
-.context .companyInfo .viewer .outline p{
-    font-family: PingFangSC-Regular,sans-serif;
-    font-size: 0.8rem;
-    font-weight: normal;
-    font-stretch: normal;
-    line-height: 1.5;
-    letter-spacing: 0;
-    color: #333333;
+.contactUs .context .text{
+    border: 1px solid red;
+    width: 60%;
     text-align: left;
-    width: 100%;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
-}
-
-.context .structureImg{
-    width: 100%;
-    margin-top:6%;
     margin-left: auto;
     margin-right: auto;
-}
-
-.context .structureImg img{
-    width: 100%;
-}
-
-.context p{
-    font-family: PingFangSC-Regular,sans-serif;
-    font-size: 1rem;
+    font-family: STSongti-SC-Regular,sans-serif;
+    font-size: 1.2rem;
     font-weight: normal;
     font-stretch: normal;
-    line-height: 3;
+    line-height: 2;
     letter-spacing: 0;
-    color: #999999;
 }
 
-.companyDetail{
-    width: 100%;
-    margin-top: 3.75%;
-}
-
-.companyDetail img{
-    width: 100%;
-}
-
-.advancedImg img{
-    width: 100%;
-    margin-top: 6%;
-    margin-bottom: 6%;
-}
 
 footer{
     border: 1px solid red;
@@ -334,6 +283,8 @@ footer .copyright{
     letter-spacing: 0;
     color: #ffffff;
 }
+
+
 
 footer .copyright small{
     border: 1px solid red;
