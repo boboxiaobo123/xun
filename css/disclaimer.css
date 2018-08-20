@@ -1,0 +1,316 @@
+html{
+    font-size: 12px;
+}
+
+body{
+    width: 100%;
+}
+
+div,p{
+    border: 1px solid red;
+}
+
+header{
+    border: 1px solid black;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+h1,h2,p,ul {
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+}
+
+header .headerText{
+    border: 1px solid greenyellow;
+    position: relative;
+    width: 63.59%;
+    margin-top: 3.75%;
+    left:17.708%;
+}
+
+header .headerText .logo{
+    border: 1px solid black;
+    position:relative;
+    min-width: 21rem;
+    left: 1.638%;
+}
+
+header .headerText .English{
+    border: 1px solid black;
+    position: absolute;
+    display: inline;
+    right:0;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1rem;
+    letter-spacing: 0;
+    color: #666666;
+}
+
+header nav{
+    border: 1px solid black;
+    position: relative;
+    width:82.23%;
+    margin-top: 4.259%;
+}
+
+header nav ul{
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+header nav ul li{
+    position:relative;
+    display: inline-block;
+    width: 15%;
+    min-width: 4rem;
+    text-align: center;
+}
+
+header nav ul li a{
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2rem;
+    letter-spacing: 0;
+    color: #021c59;
+    text-decoration: none;
+}
+
+header li.active{
+    border-bottom: solid 1px #021c59;
+}
+
+header .headerPic{
+    border: 1px solid red;
+    position: relative;
+    margin-top:0.7291%;
+    width: 100%;
+    background-image: url(/xun/img/pic1.png);
+    background-size: 100%;
+    text-align: center;
+    overflow: auto;
+}
+
+header .headerPic h1{
+    position: relative;
+    width:34.17%;
+    min-width: 41rem;
+    margin-top: 8.3%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+header .headerPic h2{
+    position: relative;
+    width: 39.2%;
+    min-width: 47rem;
+    margin-top: 3.3%;
+    margin-bottom: 8.3%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2.5;
+    letter-spacing: 0;
+    color: #ffffff;
+    border: solid 1px #fffcf5;
+
+}
+
+section{
+    border: 1px solid red;
+    position: relative;
+    width: 62.5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section .main{
+    width: 100%;
+    background-color: #f9f9f9;
+}
+
+section .added{
+    width: 100%;
+    padding-top: 4%;
+}
+
+section .main .header{
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #000000;
+    padding-top: 2%;
+    text-align: center;
+}
+
+section .main .text{
+    width: 100%;
+}
+
+section .main .text p{
+    max-height: 38rem;
+    overflow: auto;
+    width: 84%;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #666666;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section .added .choose{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #666666;
+    display: inline-block;
+}
+
+section .added .button{
+    font-family: PingFangSC-Medium, sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    display: inline-block;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+#blue{
+    background-color: #021c59;
+}
+
+#white{
+    border: solid 1px #021c59;
+}
+
+#blue a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#white a{
+    text-decoration: none;
+    color: #021c59;
+}
+
+
+footer{
+    border: 1px solid red;
+    width: 100%;
+    background-color: #000000;
+}
+
+footer .footerWidth{
+    border: 1px solid red;
+    width: 62.5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    margin-left:19.17%;
+}
+
+footer nav{
+    width: 48%;
+    border: 1px solid red;
+}
+
+footer nav ul li{
+    display: inline-block;
+    width: 32%;
+    text-align: left;
+}
+
+footer nav ul .footerNavLiFirst{
+    margin-left: 0;
+}
+
+footer a{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 3;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-decoration:none;
+}
+
+footer .right a{
+    line-height: 1;
+}
+
+footer .copyright{
+    border: 1px solid red;
+    margin-top: 2.5%;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+footer .copyright small{
+    border: 1px solid red;
+    display: inline-block;
+    float: right;
+}
+
+footer .copyright .text{
+    border: 1px solid red;
+    width: 20%;
+    min-width: 8rem;
+    display: inline-block;
+}
+
+footer .copyright .text div{
+    width: 48%;
+    float: left;
+}
+
+footer .copyright .text .left{
+    text-align: left;
+    display: inline-block;
+    border-right: 1px solid #ffffff;
+}
+
+footer .copyright .text .right{
+    display: inline-block;
+    text-align: right;
+}

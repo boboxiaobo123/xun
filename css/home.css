@@ -1,0 +1,736 @@
+html{
+    font-size: 12px;
+}
+
+body{
+    width: 100%;
+}
+
+header{
+    border: 1px solid black;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+h1,h2,p,ul {
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    -webkit-padding-start: 0;
+}
+
+header .headerText{
+    border: 1px solid greenyellow;
+    position: relative;
+    width: 63.59%;
+    margin-top: 3.75%;
+    left:17.708%;
+}
+
+header .headerText .logo{
+    border: 1px solid black;
+    position:relative;
+    min-width: 21rem;
+    left: 1.638%;
+}
+
+header .headerText .English{
+    border: 1px solid black;
+    position: absolute;
+    display: inline;
+    right:0;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1rem;
+    letter-spacing: 0;
+    color: #666666;
+}
+
+header nav{
+    border: 1px solid black;
+    position: relative;
+    width:82.23%;
+    margin-top: 4.259%;
+}
+
+header nav ul{
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+header nav ul li{
+    position:relative;
+    display: inline-block;
+    width: 15%;
+    min-width: 4rem;
+    text-align: center;
+}
+
+header nav ul li a{
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2rem;
+    letter-spacing: 0;
+    color: #021c59;
+    text-decoration: none;
+}
+
+header li.active{
+    border-bottom: solid 1px #021c59;
+}
+
+header .headerPic{
+    border: 1px solid red;
+    position: relative;
+    margin-top:0.7291%;
+    width: 100%;
+    background-image: url(/xun/img/pic1.png);
+    background-size: 100%;
+    text-align: center;
+    overflow: auto;
+}
+
+header .headerPic h1{
+    position: relative;
+    width:34.17%;
+    min-width: 41rem;
+    margin-top: 8.3%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+header .headerPic h2{
+    position: relative;
+    width: 39.2%;
+    min-width: 47rem;
+    margin-top: 3.3%;
+    margin-bottom: 8.3%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2.5;
+    letter-spacing: 0;
+    color: #ffffff;
+    border: solid 1px #fffcf5;
+
+}
+
+section{
+    border: 1px solid red;
+    position: relative;
+    width: 100%;
+    min-width: 700px;
+    overflow: auto;
+}
+
+.aboutUs{
+    position: relative;
+    width: 62.5%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.aboutUs .header{
+    border: 1px solid red;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.aboutUs .header .Chinese{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #021c59;
+}
+
+.aboutUs .header .English{
+    display: inline;
+    font-family: STSongti-SC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #021c59;
+}
+
+.aboutUs .header .line1{
+    display: inline-block;
+    width: 9rem;
+    height: 1px;
+    left: 0;
+    background-color: #021c59;
+}
+
+.aboutUs .header .line2{
+    display: inline-block;
+    width: 9rem;
+    height: 1px;
+    left: 0;
+    background-color: #021c59;
+}
+
+.aboutUs .pic2{
+    border: 1px solid red;
+    width: 48%;
+    padding-top: 1.3%;
+    padding-bottom: 1.3%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 6.6%;
+}
+
+.aboutUs .pic2 img{
+    width: 100%;
+}
+
+.aboutUs .right{
+    border: 1px solid red;
+    display: inline-block;
+    position: relative;
+    width: 46.67%;
+    margin-left: 4%;
+    vertical-align: top;
+    margin-top: 6.6%;
+    padding-top: 1.3%;
+}
+
+.aboutUs .right .text{
+    border: 1px solid green;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #333333;
+    margin-top: 2.857%;
+    text-align: left;
+    min-height: 135px;
+    width: 100%;
+}
+
+.aboutUs .right .learnMore{
+    border: 1px solid green;
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    background-color: #021c59;
+    width: 25.71%;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.learnMore a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.fundProduct{
+    position: relative;
+    width: 62.5%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fundProduct .header{
+    border: 1px solid red;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.fundProduct .header .Chinese{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #021c59;
+}
+
+.fundProduct .header .English{
+    display: inline;
+    font-family: STSongti-SC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #021c59;
+}
+
+.fundProduct .header .line1{
+    display: inline-block;
+    width: 9rem;
+    height: 1px;
+    left: 0;
+    background-color: #021c59;
+}
+
+.fundProduct .header .line2{
+    display: inline-block;
+    width: 9rem;
+    height: 1px;
+    left: 0;
+    background-color: #021c59;
+}
+
+#fundLeft{
+    border: 1px solid red;
+    width: 48%;
+    padding-top: 1.3%;
+    padding-bottom: 1.3%;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 6.6%;
+}
+
+#fundRight{
+    border: 1px solid red;
+    display: inline-block;
+    position: relative;
+    width: 46.67%;
+    margin-left: 4%;
+    vertical-align: top;
+    margin-top: 6.6%;
+    padding-top: 1.3%;
+}
+
+.fundProduct .fund .num{
+    border: 1px solid red;
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.3;
+    letter-spacing: 0;
+    color: #333333;
+}
+
+.fundProduct .fund .smallHeader{
+    border: 1px solid red;
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 1;
+    color: #333333;
+    margin-top: 2.7%;
+}
+
+.fundProduct .fund .text{
+    border: 1px solid red;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #333333;
+    margin-top: 2.7%;
+}
+
+.fundProduct .fund .socks{
+    border: 1px solid red;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 0.8rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ff0000;
+    margin-top: 2.7%;
+}
+
+.investment{
+    border: 1px solid red;
+    position: relative;
+    width: 100%;
+    margin-top: 4%;
+
+}
+
+.investment .background{
+    border: 1px solid red;
+    width: 100%;
+    background-color: #e7e7e7;
+    height: 30rem;
+    position: absolute;
+    z-index: -1;
+}
+
+.investment .header{
+    border: 1px solid red;
+    width: auto;
+    margin-top: 2.5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #e7e7e7;
+}
+
+.investment .header .Chinese{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #021c59;
+    text-align: center;
+}
+
+.investment .header .English{
+    font-family: STSongti-SC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #021c59;
+    display: inline;
+}
+
+.investment .header .line1{
+    width: 9rem;
+    height: 1px;
+    background-color: #021c59;
+    display: inline-block;
+}
+
+.investment .header .line2{
+    width: 9rem;
+    height: 1px;
+    background-color: #021c59;
+    display: inline-block;
+}
+
+.investment .context{
+    border: 1px solid red;
+    width: 62.5%;
+    min-width: 715px;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.investment .context .header{
+    background-color: #021c59;;
+}
+
+.investment .context .left{
+    border: 1px solid red;
+    width: 37.2%;
+    display: inline-block;
+    height: 29rem;
+    vertical-align: top;
+    background-color: #021c59;
+    display: inline-block;
+    overflow: auto;
+}
+
+.investment .context .right{
+    border: 1px solid red;
+    width: 58.5%;
+    display: inline-block;
+    margin-left: 3%;
+    height: 29rem;
+    vertical-align: top;
+    background-color: #021c59;
+    overflow: auto;
+}
+
+.investment .context .left .header{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 13.3%;
+}
+
+.investment .context .left .line{
+    width: 17.857%;
+    height: 5px;
+    margin-left: 13.3%;
+    margin-top: 7.143%;
+    background-color: #ffffff;
+}
+
+.investment .context .left .text{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    padding-left: 13.3%;
+    width: 71.43%;
+    margin-top: 14.286%;
+
+}
+
+.investment .context .right .header{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-align: left;
+    margin-top: 0;
+    padding-left: 9.09%;
+}
+
+.investment .context .right .line{
+    width: 11.363%;
+    height: 5px;
+    background-color: #ffffff;
+    margin-left: 9.09%;
+    margin-top: 4.54%;
+}
+
+.investment .context .right .text{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #ffffff;
+    padding-left: 9.09%;
+    width: 71.43%;
+    margin-top: 9.09%;
+}
+
+.investment .learnMore{
+    width: 10rem;
+    border: solid 1px #021c59;
+    margin-left: 45%;
+    margin-top: 2.5%;
+    text-align: center;
+}
+
+.investment .learnMore .more{
+    border: solid 1px #021c59;
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #021c59;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.contactUs{
+    position: relative;
+    width: 62.5%;
+    height: 28rem;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contactUs .header{
+    border: 1px solid red;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.contactUs .header .Chinese{
+    font-family: PingFangSC-Semibold,sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: 0;
+    color: #021c59;
+}
+
+.contactUs .header .English{
+    font-family: STSongti-SC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #021c59;
+    display: inline;
+}
+
+.contactUs .header .line1{
+    width: 9rem;
+    height: 1px;
+    background-color: #021c59;
+    display: inline-block;
+}
+
+.contactUs .header .line2{
+    width: 9rem;
+    height: 1px;
+    background-color: #021c59;
+    display: inline-block;
+}
+
+.contactUs .context{
+    width: 100%;
+    margin-top: 8%;
+}
+
+.contactUs .context .text{
+    border: 1px solid red;
+    display: inline-block;
+    width: 24%;
+    vertical-align: top;
+    text-align: left;
+    margin-left: 13%;
+}
+
+#contactUsLeft{
+    margin-left: 0;
+}
+
+.contactUs .context .text .smallHeader{
+    font-family: PingFangSC-Medium,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.contactUs .context .text .smallText{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    letter-spacing: 0;
+    color: #333333;
+}
+
+footer{
+    border: 1px solid red;
+    width: 100%;
+    background-color: #000000;
+}
+
+footer .footerWidth{
+    border: 1px solid red;
+    width: 62.5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    margin-left:19.17%;
+}
+
+footer nav{
+    width: 48%;
+    border: 1px solid red;
+}
+
+footer nav ul li{
+    display: inline-block;
+    width: 32%;
+    text-align: left;
+}
+
+footer nav ul .footerNavLiFirst{
+    margin-left: 0;
+}
+
+footer a{
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 3;
+    letter-spacing: 0;
+    color: #ffffff;
+    text-decoration:none;
+}
+
+footer .right a{
+    line-height: 1;
+}
+
+footer .copyright{
+    border: 1px solid red;
+    margin-top: 2.5%;
+    font-family: PingFangSC-Regular,sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+footer .copyright small{
+    border: 1px solid red;
+    display: inline-block;
+    float: right;
+}
+
+footer .copyright .text{
+    border: 1px solid red;
+    width: 20%;
+    min-width: 8rem;
+    display: inline-block;
+}
+
+footer .copyright .text div{
+    width: 48%;
+    float: left;
+}
+
+footer .copyright .text .left{
+    text-align: left;
+    display: inline-block;
+    border-right: 1px solid #ffffff;
+}
+
+footer .copyright .text .right{
+    display: inline-block;
+    text-align: right;
+}
