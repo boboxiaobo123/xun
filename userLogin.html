@@ -4,6 +4,38 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="css/userLogin.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#login").click(function () {
+                var $username=$("#name").val();
+                var $password=$("#password").val();
+                var dataParam = '{"userName":"'+$username+'","password":"'+$password+'"}';
+                var url = "http://localhost:8080/api/v1/user/login";
+                $.ajaxSetup({
+                    url:encodeURI(url),
+                    type:"POST",
+                    data:dataParam,
+                    processData:true,
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json"
+                });
+                var jqXHR = $.ajax();
+                jqXHR.done(function(data, textStatus, jqXHR){
+                    var result = JSON.parse(jqXHR.responseText);
+                    var code = result.code;
+
+                    if(code!=200){
+                        alert("用户名或密码不正确");
+                    }else{
+                        var userId = result.userId;
+                        var personalRateReturn = result.personal_rate_return;
+                        window.location.href = "userLoginDetail.html";
+                    }
+                });
+            })
+        })
+    </script>
 </head>
 <body>
 
@@ -33,7 +65,7 @@
         <li class="active"><a class="active" href="#form">机构投资者</a></li>
         <li><a href="#form">专业投资者</a></li>
     </ul>
-    <form id="form" action="/my-handling-form-page" method="post">
+    <div id="form">
         <div class="outline">
             <div class="name">
                 <label for="name">用户名</label>
@@ -47,7 +79,7 @@
                 <label for="password">密码</label>
             </div>
             <div class="text">
-                <input type="text" id="password" />
+                <input type="text" id="password"/>
             </div>
         </div>
         <div class="outline">
@@ -58,7 +90,7 @@
                 <button type="reset" id="reset">重置</button>
             </div>
         </div>
-    </form>
+    </div>
 </section>
 
 <footer>
