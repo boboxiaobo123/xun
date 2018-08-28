@@ -241,19 +241,28 @@ section{
     width: 100%;
 }
 
-.aboutUs .right .learnMore{
+.learnMore{
+    position: relative;
+    width: 62.5%;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+
     /*border: 1px solid green;*/
+}
+
+.learnMore p{
+    width: 10%;
+    border: solid 1px #021c59;
     font-family: PingFangSC-Medium,sans-serif;
     font-size: 1rem;
     font-weight: normal;
     font-stretch: normal;
     line-height: 2;
     letter-spacing: 0;
-    color: #ffffff;
-    background-color: #021c59;
-    width: 25.71%;
+    /*color: #ffffff;*/
+    /*background-color: #021c59;*/
     text-align: center;
-    margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -559,7 +568,7 @@ section{
     text-align: center;
 }
 
-.investment .learnMore .more{
+.learnMore .more{
     border: solid 1px #021c59;
     font-family: PingFangSC-Medium,sans-serif;
     font-size: 1rem;
@@ -571,7 +580,7 @@ section{
     padding-right: 2rem;
 }
 
-.investment .learnMore .more a{
+.learnMore .more a{
     color: #021c59;
 }
 
