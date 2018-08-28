@@ -215,8 +215,6 @@
                             $("#"+resDetail).text(resDetailT);
                         }else{
                             $("#"+resDetail).text(resDetailT.substring(0,33));
-//                            divContent.className+=" "+"showTextButton";
-//                            showTextButton();
                         }
                         var resProgramRateReturnT=res.programRateReturn;
                         $("#"+resProgramName).text(resProgramNameT);
@@ -284,10 +282,6 @@
             }
         })
 
-        function showHide() {
-            $("#image"+String(i+1)).toggle();
-        }
-
         function showPicText(obj) {
             var s = $(obj).attr("id");
             var projectId = s.substr(s.length-1,1);
@@ -308,8 +302,7 @@
         }
 
         function showText(obj){
-            var temp = obj;
-            var s = $(temp).attr("id");
+            var s = $(obj).attr("id");
             var projectId = s.substr(s.length-1,1);
             if($("#resDetail"+projectId).text()===sessionStorage.getItem("resDetailTShort"+projectId)){
                 $("#resDetail"+projectId).html(sessionStorage.getItem("resDetailT"+projectId));
@@ -319,29 +312,6 @@
                 return;
             }
         }
-
-//        function pictureResponse(jqXHR,m){
-//            jqXHR.done(function(response5){
-//                var code = response5.code;
-//                if(code==200) {
-////              创建展示图片的小按钮, 如果没有图片,code!=200, 不创建
-//                    divContent.className+=" "+"showPicButton"+String(m+1);
-//                    showButton();
-//                    var imagelist = response5.images;
-//                    for(let k=0;k<imagelist.length;k++){
-//                        var imageLocation = imagelist[k];
-//                        var div = document.createElement('div');
-//                        div.style.display="none";
-//                        $(".extend").after(div);
-//                        var img = document.createElement('img');
-//                        div.setAttribute("id","image"+String(m+1));
-//                        img.setAttribute("class","imglocation");
-//                        img.setAttribute("src",imageLocation);
-//                        div.append(img);
-//                    }
-//                }
-//            });
-//        }
 
         /*
         * 添加展现图片的div,并且把图片放入
@@ -366,7 +336,6 @@
         function addButton(projectId) {
             var divExtend = document.createElement('div');
             divExtend.setAttribute("class","extend");
-//            divExtend.setAttribute("onclick","showHide(m)");
             $("#project"+projectId).append(divExtend);
             console.log("extendParentNode", divExtend.parentNode);
             var divIcon = document.createElement('div');
@@ -383,24 +352,6 @@
             divIconp.appendChild(divIconpP);
         }
 
-//        function showTextButton() {
-//            var divExtend = document.createElement('div');
-//            divExtend.setAttribute("class","extend");
-//            divExtend.setAttribute("onclick","showHide(m)");
-//            $(".showTextButton").append(divExtend);
-//            var divIcon = document.createElement('div');
-//            divIcon.setAttribute("class","icon");
-//            var divIconp= document.createElement('div');
-//            divIconp.setAttribute("class","iconp");
-//            divExtend.append(divIcon);
-//            divExtend.append(divIconp);
-//            var span = document.createElement('span');
-//            var divIconpP= document.createElement('p');
-//            var divIconpPT = document.createTextNode("展示");
-//            divIconpP.append(divIconpPT);
-//            divIcon.append(span);
-//            divIconp.appendChild(divIconpP);
-//        }
     </script>
 </head>
 <body>
