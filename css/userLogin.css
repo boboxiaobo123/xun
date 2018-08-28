@@ -4,14 +4,15 @@ html{
 
 body{
     width: 100%;
+    margin:0;
 }
 
 div,p{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 header{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position: relative;
     width: 100%;
     height: auto;
@@ -32,7 +33,7 @@ h1,h2,p,ul {
 }
 
 header .headerText{
-    border: 1px solid greenyellow;
+    /*border: 1px solid greenyellow;*/
     position: relative;
     width: 63.59%;
     margin-top: 3.75%;
@@ -40,14 +41,14 @@ header .headerText{
 }
 
 header .headerText .logo{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position:relative;
     min-width: 21rem;
     left: 1.638%;
 }
 
 header .headerText .English{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position: absolute;
     display: inline;
     right:0;
@@ -62,7 +63,7 @@ header .headerText .English{
 }
 
 header nav{
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     position: relative;
     width:82.23%;
     margin-top: 4.259%;
@@ -98,7 +99,7 @@ header li.active{
 }
 
 header .headerPic{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     position: relative;
     margin-top:0.7291%;
     width: 100%;
@@ -144,7 +145,7 @@ header .headerPic h2{
 }
 
 section{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     position: relative;
     width: 36.25%;
     min-width: 258px;
@@ -244,22 +245,25 @@ section input{
 }
 
 footer{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     width: 100%;
     background-color: #000000;
 }
 
 footer .footerWidth{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     width: 62.5%;
     margin-top: 2.5%;
-    margin-bottom: 2.5%;
-    margin-left:19.17%;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 50rem;
+    padding-top: 4%;
+    padding-bottom: 5%;
 }
 
 footer nav{
     width: 48%;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 footer nav ul li{
@@ -288,7 +292,7 @@ footer .right a{
 }
 
 footer .copyright{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     margin-top: 2.5%;
     font-family: PingFangSC-Regular,sans-serif;
     font-size: 1rem;
@@ -300,13 +304,13 @@ footer .copyright{
 }
 
 footer .copyright small{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     display: inline-block;
     float: right;
 }
 
 footer .copyright .text{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     width: 20%;
     min-width: 8rem;
     display: inline-block;

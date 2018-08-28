@@ -4,6 +4,340 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="css/userLoginDetail.css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var userId = sessionStorage.getItem("userId");
+//          获取个人投资信息
+            var url1 = "http://localhost:8080/api/v1/user/program/personal?userId="+userId;
+            $.ajaxSetup({
+                url:encodeURI(url1),
+                type:"GET",
+                processData:true,
+                contentType:"application/json; charset=utf-8",
+                dataType:"json"
+            });
+            var jqXHR1 = $.ajax();
+            jqXHR1.done(function(response1){
+                var code = response1.code;
+                if(code==200) {
+                    var subscription = response1.subscription;
+                    $("#subscription").text(subscription);//1.获取个人本期参与项目的认购金额
+                    var startDate = response1.startDate;
+                    var endDate = response1.endDate;
+                    $("#time").text(startDate+"--"+endDate);//2.获取个人本期参与项目的起止时间
+                    var programIds=response1.programIds;
+//                  获取本期参与项目的名称
+                    var programNames=new Array();
+                    var count = 0;
+//                    var programIds=programIdsString.split(",");
+                    for(let i=0;i<programIds.length;i++){
+                        var programId = programIds[i];
+                        var url2 = "http://localhost:8080/api/v1/user/program?programId="+programId;
+                        $.ajaxSetup({
+                            url:encodeURI(url2),
+                            type:"GET",
+                            processData:true,
+                            contentType:"application/json; charset=utf-8",
+                            dataType:"json"
+                        });
+                        var jqXHR2 = $.ajax();
+                        jqXHR2.done(function(response2){
+                            var code = response2.code;
+                            if(code==200) {
+                                var programName = response2.programName;
+                                programNames[count]=programName;
+                                count = count+1;
+//                              3.获取本期参与项目列表,填入
+                                $("#personalPrograms").text(String(programNames));
+                            }
+                        });
+                    }
+                }
+            });
+
+//            获取历史参与项目
+            var url3 = "http://localhost:8080/api/v1/user/program/history?userId="+userId;
+            $.ajaxSetup({
+                url:encodeURI(url3),
+                type:"GET",
+                processData:true,
+                contentType:"application/json; charset=utf-8",
+                dataType:"json"
+            });
+            var jqXHR3 = $.ajax();
+            jqXHR3.done(function(response3){
+                var code = response3.code;
+                if(code==200) {
+                    var historyList = response3.programHistory;
+//                  4.获取历史参与项目列表,填入
+                    $("#historyPrograms").text(String(historyList));
+                }
+            });
+
+//            5. 获取个人投资回报率填充
+            $("#personalRateReturn").text(sessionStorage.getItem("personalRate"));
+//            获取用户姓名填充
+            $("#name").text(sessionStorage.getItem("username"));
+
+//            6. 获取所有项目列表, 创建Div, 给出各种class,id=project1
+            var url4 = "http://localhost:8080/api/v1/user/program/all";
+            $.ajaxSetup({
+                url:encodeURI(url4),
+                type:"GET",
+                processData:true,
+                contentType:"application/json; charset=utf-8",
+                dataType:"json"
+            });
+            var jqXHR4 = $.ajax();
+            jqXHR4.done(function(response4){
+                var code = response4.code;
+                if(code==200) {
+                    var programList = response4.programDaoList;
+                    var num = programList.length;
+                    sessionStorage.setItem("allProjects",num);
+                    for(let j=0;j<num;j++){
+//                        创件div以及形成结构树, 并把数据填充进去
+                        divContent = document.createElement('div');
+                        divContent.setAttribute("class","content");
+                        divContent.setAttribute("id","project"+String(j+1));
+                        var divDetail = document.createElement('div');
+                        divDetail.setAttribute("class","detail");
+                        var divTwo1 = document.createElement('div');
+                        divTwo1.setAttribute("class","two");
+                        var divTwo2 = document.createElement('div');
+                        divTwo2.setAttribute("class","two");
+                        var divTwo3 = document.createElement('div');
+                        divTwo3.setAttribute("class","two");
+                        var divTwo4 = document.createElement('div');
+                        divTwo4.setAttribute("class","two");
+                        var divOne = document.createElement('div');
+                        divOne.setAttribute("class","one");
+                        $("#insert").append(divContent);
+                        divContent.append(divDetail);
+                        divDetail.append(divTwo1);
+                        divDetail.append(divTwo2);
+                        divDetail.append(divTwo3);
+                        divDetail.append(divTwo4);
+                        divDetail.append(divOne);
+                        var divTwo1Title = document.createElement('div');
+                        divTwo1Title.setAttribute("class","title");
+                        var divTwo1Text= document.createElement('div');
+                        divTwo1Text.setAttribute("class","text");
+                        divTwo1.append(divTwo1Title);
+                        divTwo1.append(divTwo1Text);
+                        var divTwo2Title = document.createElement('div');
+                        divTwo2Title.setAttribute("class","title");
+                        var divTwo2Text= document.createElement('div');
+                        divTwo2Text.setAttribute("class","text");
+                        divTwo2.append(divTwo2Title);
+                        divTwo2.append(divTwo2Text);
+                        var divTwo3Title = document.createElement('div');
+                        divTwo3Title.setAttribute("class","title");
+                        var divTwo3Text= document.createElement('div');
+                        divTwo3Text.setAttribute("class","text");
+                        divTwo3.append(divTwo3Title);
+                        divTwo3.append(divTwo3Text);
+                        var divTwo4Title = document.createElement('div');
+                        divTwo4Title.setAttribute("class","title");
+                        var divTwo4Text= document.createElement('div');
+                        divTwo4Text.setAttribute("class","text");
+                        divTwo4.append(divTwo4Title);
+                        divTwo4.append(divTwo4Text);
+                        var divOneTitle = document.createElement('div');
+                        divOneTitle.setAttribute("class","title");
+                        var divOneText= document.createElement('div');
+                        divOneText.setAttribute("class","text");
+                        divOne.append(divOneTitle);
+                        divOne.append(divOneText);
+                        var divTwo1TitleP = document.createElement('p')
+                        var divTwo1TitlePT = document.createTextNode("项目名称");
+                        divTwo1TitleP.appendChild(divTwo1TitlePT);
+                        divTwo1Title.append(divTwo1TitleP);
+                        var divTwo1TextP = document.createElement('p');
+                        divTwo1Text.appendChild(divTwo1TextP);
+                        var divTwo2TitleP = document.createElement('p');
+                        var divTwo2TitlePT= document.createTextNode("预期回报率");
+                        divTwo2TitleP.append(divTwo2TitlePT);
+                        var divTwo2TextP = document.createElement('p');
+                        divTwo2Title.appendChild(divTwo2TitleP);
+                        divTwo2Text.appendChild(divTwo2TextP);
+                        var divTwo3TitleP = document.createElement('p');
+                        var divTwo3TitlePT= document.createTextNode("项目负责人");
+                        divTwo3TitleP.append(divTwo3TitlePT);
+                        var divTwo3TextP = document.createElement('p');
+                        divTwo3Title.appendChild(divTwo3TitleP);
+                        divTwo3Text.appendChild(divTwo3TextP);
+                        var divTwo4TitleP = document.createElement('p');
+                        var divTwo4TitlePT = document.createTextNode("项目地址");
+                        divTwo4TitleP.append(divTwo4TitlePT);
+                        var divTwo4TextP = document.createElement('p');
+                        divTwo4Title.appendChild(divTwo4TitleP);
+                        divTwo4Text.appendChild(divTwo4TextP);
+                        var divOneTitleP = document.createElement('p');
+                        var divOneTitlePT = document.createTextNode("项目介绍");
+                        divOneTitle.append(divOneTitlePT);
+                        var divOneTextP = document.createElement('p');
+                        divOneTitle.appendChild(divOneTitleP);
+                        divOneText.appendChild(divOneTextP);
+                        var res = programList[j];
+                        var resProgramName="resProgramName"+String(j+1);
+                        var resOwner="resOwner"+String(j+1);
+                        var resAddress="resAddress"+String(j+1);
+                        var resDetail="resDetail"+String(j+1);
+                        var resProgramRateReturn = "resProgramRateReturn"+String(j+1);
+                        divTwo1TextP.setAttribute("id",resProgramName);
+                        divTwo2TextP.setAttribute("id",resProgramRateReturn);
+                        divTwo3TextP.setAttribute("id",resOwner);
+                        divTwo4TextP.setAttribute("id",resAddress);
+                        divOneTextP.setAttribute("id",resDetail);
+                        var resProgramNameT = res.programName;
+                        var resOwnerT=res.owner;
+                        var resAddressT=res.address;
+                        var resDetailT = res.detail;
+                        var textLength=resDetailT.length;
+                        sessionStorage.setItem("resDetailT"+String(j+1),resDetailT);
+                        sessionStorage.setItem("resDetailTLength"+String(j+1),textLength);
+                        if(textLength<35){
+                            $("#"+resDetail).text(resDetailT);
+                        }else{
+                            $("#"+resDetail).text(resDetailT.substring(0,34));
+//                            divContent.className+=" "+"showTextButton";
+//                            showTextButton();
+                        }
+                        var resProgramRateReturnT=res.programRateReturn;
+                        $("#"+resProgramName).text(resProgramNameT);
+                        $("#"+resOwner).text(resOwnerT);
+                        $("#"+resAddress).text(resAddressT);
+                        $("#"+resProgramRateReturn).text(resProgramRateReturnT);
+                    }
+                }
+            });
+
+            /* 7.查询单个项目图片
+             * 7.1 如果有图片, 或字数>=35, 添加展开按钮;
+             * 7.2 如果有图片, 创建图片的div,动态把图片加载进去;
+             * 7.3 如果有图片+字数>=35,展开两项;
+             * 7.4 如果有图片,没有字数, 展开图片;
+             * 7.5 如果没有图片,有文字, 展开文字;
+             */
+            for(let n=0;n<sessionStorage.getItem("allProjects");n++){
+                var codePic = sessionStorage.getItem("code"+String(n+1));
+                var textDetail = sessionStorage.getItem("resDetailT"+String(n+1));
+                var textNum = sessionStorage.getItem("resDetailTLength"+String(n+1));
+                if(codePic==200||textNum>=35){
+                    var divExtend = document.createElement('div');
+                    divExtend.setAttribute("class","extend");
+                    divExtend.setAttribute("onclick","showHide(m)");
+                    $("#project"+String(n+1)).append(divExtend);
+                    var divIcon = document.createElement('div');
+                    divIcon.setAttribute("class","icon");
+                    var divIconp= document.createElement('div');
+                    divIconp.setAttribute("class","iconp");
+                    divExtend.append(divIcon);
+                    divExtend.append(divIconp);
+                    var span = document.createElement('span');
+                    var divIconpP= document.createElement('p');
+                    var divIconpPT = document.createTextNode("展示");
+                    divIconpP.append(divIconpPT);
+                    divIcon.append(span);
+                    divIconp.appendChild(divIconpP);
+                    console.log("showButton",codePic,textDetail,textNum);
+                }
+                if(codePic==200){
+                    console.log("addImage",codePic,textDetail,textNum);
+                }
+                if(codePic==200&&textNum>=35){
+                    console.log("addImage&Text",codePic,textDetail,textNum);
+                }
+                if(textNum>35){
+                    console.log("addText",codePic,textDetail,textNum);
+                }
+            }
+
+            for(let m=0;m<sessionStorage.getItem("allProjects");m++){
+                var url5 = "http://localhost:8080/api/v1/user/program/image?programId="+String(m+1);
+                $.ajaxSetup({
+                    url:encodeURI(url5),
+                    type:"GET",
+                    processData:true,
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json"
+                });
+                var jqXHR5 = $.ajax();
+                jqXHR5.done(function(response5){
+                    var code = response5.code;
+                    sessionStorage.setItem("code"+String(m+1),code);
+                });
+            }
+
+        })
+
+        function showHide() {
+            $("#image"+String(i+1)).toggle();
+        }
+
+        function pictureResponse(jqXHR,m){
+            jqXHR.done(function(response5){
+                var code = response5.code;
+                if(code==200) {
+//              创建展示图片的小按钮, 如果没有图片,code!=200, 不创建
+                    divContent.className+=" "+"showPicButton"+String(m+1);
+                    showButton();
+                    var imagelist = response5.images;
+                    for(let k=0;k<imagelist.length;k++){
+                        var imageLocation = imagelist[k];
+                        var div = document.createElement('div');
+                        div.style.display="none";
+                        $(".extend").after(div);
+                        var img = document.createElement('img');
+                        div.setAttribute("id","image"+String(m+1));
+                        img.setAttribute("class","imglocation");
+                        img.setAttribute("src",imageLocation);
+                        div.append(img);
+                    }
+                }
+            });
+        }
+
+        function showButton(n) {
+            var divExtend = document.createElement('div');
+            divExtend.setAttribute("class","extend");
+            divExtend.setAttribute("onclick","showHide(m)");
+            $("#project"+String(n+1)).append(divExtend);
+            var divIcon = document.createElement('div');
+            divIcon.setAttribute("class","icon");
+            var divIconp= document.createElement('div');
+            divIconp.setAttribute("class","iconp");
+            divExtend.append(divIcon);
+            divExtend.append(divIconp);
+            var span = document.createElement('span');
+            var divIconpP= document.createElement('p');
+            var divIconpPT = document.createTextNode("展示");
+            divIconpP.append(divIconpPT);
+            divIcon.append(span);
+            divIconp.appendChild(divIconpP);
+        }
+
+        function showTextButton() {
+            var divExtend = document.createElement('div');
+            divExtend.setAttribute("class","extend");
+            divExtend.setAttribute("onclick","showHide(m)");
+            $(".showTextButton").append(divExtend);
+            var divIcon = document.createElement('div');
+            divIcon.setAttribute("class","icon");
+            var divIconp= document.createElement('div');
+            divIconp.setAttribute("class","iconp");
+            divExtend.append(divIcon);
+            divExtend.append(divIconp);
+            var span = document.createElement('span');
+            var divIconpP= document.createElement('p');
+            var divIconpPT = document.createTextNode("展示");
+            divIconpP.append(divIconpPT);
+            divIcon.append(span);
+            divIconp.appendChild(divIconpP);
+        }
+    </script>
 </head>
 <body>
 
@@ -36,7 +370,7 @@
                     <p>姓名:</p>
                 </div>
                 <div class="text">
-                    <p></p>
+                    <p id="name"></p>
                 </div>
             </div>
             <div class="two">
@@ -44,7 +378,7 @@
                     <p>本期认购份额:</p>
                 </div>
                 <div class="text">
-                    <p></p>
+                    <p id="subscription"></p>
                 </div>
             </div>
         </div>
@@ -54,7 +388,7 @@
                     <p>本期起止时间:</p>
                 </div>
                 <div class="text">
-                    <p></p>
+                    <p id="time"></p>
                 </div>
             </div>
             <div class="two">
@@ -62,74 +396,35 @@
                     <p>预期年化回报率:</p>
                 </div>
                 <div class="text">
-                    <p></p>
+                    <p id="personalRateReturn"></p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="one">
                 <div class="titleOne">
-                    <p>本期参与项目</p>
+                    <p>本期参与项目:</p>
                 </div>
                 <div class="textOne">
-                    <p></p>
+                    <p id="personalPrograms"></p>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="one">
                 <div class="titleOne">
-                    <p>往期参与项目</p>
+                    <p>往期参与项目:</p>
                 </div>
                 <div class="textOne">
-                    <p></p>
+                    <p id="historyPrograms"></p>
                 </div>
             </div>
         </div>
     </div>
     <div class = "line"></div>
-    <div class="square">
+    <div class="square" id="insert">
         <div class = "header">
-            <p>本期参与项目</p>
-        </div>
-        <div class = "content">
-            <div class = "detail">
-                <div class="one">
-                    <div class="title">
-                        <p>项目名称</p>
-                    </div>
-                    <div class="text"></div>
-                </div>
-                <div class="two">
-                    <div class="title">
-                        <p>项目负责人</p>
-                    </div>
-                    <div class="text"></div>
-                </div>
-                <div class="two">
-                    <div class="title">
-                        <p>项目地址</p>
-                    </div>
-                    <div class="text"></div>
-                </div>
-                <div class="one">
-                    <div class="title">
-                        <p>项目介绍</p>
-                    </div>
-                    <div class="text"></div>
-                </div>
-            </div>
-            <div class="extend">
-                <div class="icon">
-                    <span></span>
-                </div>
-                <div class="iconp">
-                    <p><a>展开</a></p>
-                </div>
-
-            </div>
-            <div class="image"></div>
-
+            <p>所有项目</p>
         </div>
     </div>
 </section>
@@ -160,6 +455,8 @@
         </div>
     </div>
 </footer>
+
+
 
 </body>
 </html>

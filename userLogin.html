@@ -21,15 +21,19 @@
                     dataType:"json"
                 });
                 var jqXHR = $.ajax();
-                jqXHR.done(function(data, textStatus, jqXHR){
-                    var result = JSON.parse(jqXHR.responseText);
+                jqXHR.done(function(jqXHR){
+                    var result = jqXHR;
                     var code = result.code;
 
                     if(code!=200){
                         alert("用户名或密码不正确");
                     }else{
                         var userId = result.userId;
-                        var personalRateReturn = result.personal_rate_return;
+                        var personalRate = result.personal_rate_return;
+                        var username = result.username;
+                        sessionStorage.setItem("userId",userId);
+                        sessionStorage.setItem("personalRate",personalRate);
+                        sessionStorage.setItem("username",username);
                         window.location.href = "userLoginDetail.html";
                     }
                 });
