@@ -74,7 +74,7 @@ header nav ul{
 header nav ul li{
     position:relative;
     display: inline-block;
-    width: 15%;
+    width: 12%;
     min-width: 4rem;
     text-align: center;
 }
@@ -91,7 +91,7 @@ header nav ul li a{
 }
 
 header li.active{
-    border-bottom: solid 1px #021c59;
+    border-bottom: solid 2px #021c59;
 }
 
 header .headerPic{
@@ -145,7 +145,7 @@ section{
     position: relative;
     width: 100%;
     min-width: 700px;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 .aboutUs{
@@ -254,6 +254,8 @@ section{
     width: 25.71%;
     text-align: center;
     margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .learnMore a{
@@ -466,7 +468,7 @@ section{
     vertical-align: top;
     background-color: #021c59;
     display: inline-block;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 .investment .context .right{
@@ -477,7 +479,7 @@ section{
     height: 29rem;
     vertical-align: top;
     background-color: #021c59;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 .investment .context .left .header{
@@ -728,7 +730,7 @@ footer .copyright small{
 
 footer .copyright .text{
     /*border: 1px solid red;*/
-    width: 20%;
+    width: 23%;
     min-width: 8rem;
     display: inline-block;
 }
@@ -741,7 +743,7 @@ footer .copyright .text div{
 footer .copyright .text .left{
     text-align: left;
     display: inline-block;
-    border-right: 1px solid #ffffff;
+    /*border-right: 1px solid #ffffff;*/
 }
 
 footer .copyright .text .right{

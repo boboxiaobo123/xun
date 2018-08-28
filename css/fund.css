@@ -78,7 +78,7 @@ header nav ul{
 header nav ul li{
     position:relative;
     display: inline-block;
-    width: 15%;
+    width: 12%;
     min-width: 4rem;
     text-align: center;
 }
@@ -95,7 +95,7 @@ header nav ul li a{
 }
 
 header li.active{
-    border-bottom: solid 1px #021c59;
+    border-bottom: solid 2px #021c59;
 }
 
 header .headerPic{
@@ -149,7 +149,7 @@ section{
     position: relative;
     width: 100%;
     /*min-width: 700px;*/
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 .context{
@@ -216,7 +216,7 @@ section{
     vertical-align: top;
     margin-top: 6%;
     min-width: 290px;
-    overflow: auto;
+    /*overflow: auto;*/
 }
 
 .context .info .viewer .outline{
@@ -281,11 +281,11 @@ section{
 }
 
 .context .info .infoImg img{
-    width: 100%;
+    width: 60%;
     margin-top: 3%;
 }
 
-.context .info .infoImg
+/*.context .info .infoImg*/
 
 .twoHeader{
     width: 100%;
@@ -392,7 +392,7 @@ footer .copyright small{
 
 footer .copyright .text{
     /*border: 1px solid red;*/
-    width: 20%;
+    width: 23%;
     min-width: 8rem;
     display: inline-block;
 }
@@ -405,7 +405,7 @@ footer .copyright .text div{
 footer .copyright .text .left{
     text-align: left;
     display: inline-block;
-    border-right: 1px solid #ffffff;
+    /*border-right: 1px solid #ffffff;*/
 }
 
 footer .copyright .text .right{
