@@ -19,6 +19,7 @@
             });
             var jqXHR1 = $.ajax();
             jqXHR1.done(function(response1){
+                console.log("jqXHR1-readyState", jqXHR1.readyState);
                 var code = response1.code;
                 if(code==200) {
                     var subscription = response1.subscription;
@@ -43,6 +44,7 @@
                         });
                         var jqXHR2 = $.ajax();
                         jqXHR2.done(function(response2){
+                            console.log("jqXHR2-readyState", jqXHR2.readyState);
                             var code = response2.code;
                             if(code==200) {
                                 var programName = response2.programName;
@@ -67,6 +69,7 @@
             });
             var jqXHR3 = $.ajax();
             jqXHR3.done(function(response3){
+                console.log("jqXHR3-readyState", jqXHR3.readyState);
                 var code = response3.code;
                 if(code==200) {
                     var historyList = response3.programHistory;
@@ -87,20 +90,29 @@
                 type:"GET",
                 processData:true,
                 contentType:"application/json; charset=utf-8",
-                dataType:"json"
+                dataType:"json",
+                async:false
             });
             var jqXHR4 = $.ajax();
             jqXHR4.done(function(response4){
+                console.log("jqXHR4-readyState", jqXHR4.readyState);
                 var code = response4.code;
                 if(code==200) {
                     var programList = response4.programDaoList;
                     var num = programList.length;
+                    var projectL = new Array();
+                    for(let o=0;o<num;o++){
+                        var projectId=programList[o].programId;
+                        projectL[o]=projectId;
+                    }
                     sessionStorage.setItem("allProjects",num);
+                    sessionStorage.setItem("projectL",projectL);
                     for(let j=0;j<num;j++){
 //                        创件div以及形成结构树, 并把数据填充进去
+                        var projectAttachId=projectL[j];
                         divContent = document.createElement('div');
                         divContent.setAttribute("class","content");
-                        divContent.setAttribute("id","project"+String(j+1));
+                        divContent.setAttribute("id","project"+projectAttachId);
                         var divDetail = document.createElement('div');
                         divDetail.setAttribute("class","detail");
                         var divTwo1 = document.createElement('div');
@@ -181,11 +193,11 @@
                         divOneTitle.appendChild(divOneTitleP);
                         divOneText.appendChild(divOneTextP);
                         var res = programList[j];
-                        var resProgramName="resProgramName"+String(j+1);
-                        var resOwner="resOwner"+String(j+1);
-                        var resAddress="resAddress"+String(j+1);
-                        var resDetail="resDetail"+String(j+1);
-                        var resProgramRateReturn = "resProgramRateReturn"+String(j+1);
+                        var resProgramName="resProgramName"+projectAttachId;
+                        var resOwner="resOwner"+projectAttachId;
+                        var resAddress="resAddress"+projectAttachId;
+                        var resDetail="resDetail"+projectAttachId;
+                        var resProgramRateReturn = "resProgramRateReturn"+projectAttachId;
                         divTwo1TextP.setAttribute("id",resProgramName);
                         divTwo2TextP.setAttribute("id",resProgramRateReturn);
                         divTwo3TextP.setAttribute("id",resOwner);
@@ -196,12 +208,13 @@
                         var resAddressT=res.address;
                         var resDetailT = res.detail;
                         var textLength=resDetailT.length;
-                        sessionStorage.setItem("resDetailT"+String(j+1),resDetailT);
-                        sessionStorage.setItem("resDetailTLength"+String(j+1),textLength);
-                        if(textLength<35){
+                        sessionStorage.setItem("resDetailT"+projectAttachId,resDetailT);
+                        sessionStorage.setItem("resDetailTLength"+projectAttachId,textLength);
+                        sessionStorage.setItem("resDetailTShort"+projectAttachId,resDetailT.substring(0,33));
+                        if(textLength<34){
                             $("#"+resDetail).text(resDetailT);
                         }else{
-                            $("#"+resDetail).text(resDetailT.substring(0,34));
+                            $("#"+resDetail).text(resDetailT.substring(0,33));
 //                            divContent.className+=" "+"showTextButton";
 //                            showTextButton();
                         }
@@ -215,96 +228,123 @@
             });
 
             /* 7.查询单个项目图片
-             * 7.1 如果有图片, 或字数>=35, 添加展开按钮;
+             * 7.1 如果有图片, 或字数>=34, 添加展开按钮;
              * 7.2 如果有图片, 创建图片的div,动态把图片加载进去;
-             * 7.3 如果有图片+字数>=35,展开两项;
+             * 7.3 如果有图片+字数>=34,展开两项;
              * 7.4 如果有图片,没有字数, 展开图片;
              * 7.5 如果没有图片,有文字, 展开文字;
              */
-            for(let n=0;n<sessionStorage.getItem("allProjects");n++){
-                var codePic = sessionStorage.getItem("code"+String(n+1));
-                var textDetail = sessionStorage.getItem("resDetailT"+String(n+1));
-                var textNum = sessionStorage.getItem("resDetailTLength"+String(n+1));
-                if(codePic==200||textNum>=35){
-                    var divExtend = document.createElement('div');
-                    divExtend.setAttribute("class","extend");
-                    divExtend.setAttribute("onclick","showHide(m)");
-                    $("#project"+String(n+1)).append(divExtend);
-                    var divIcon = document.createElement('div');
-                    divIcon.setAttribute("class","icon");
-                    var divIconp= document.createElement('div');
-                    divIconp.setAttribute("class","iconp");
-                    divExtend.append(divIcon);
-                    divExtend.append(divIconp);
-                    var span = document.createElement('span');
-                    var divIconpP= document.createElement('p');
-                    var divIconpPT = document.createTextNode("展示");
-                    divIconpP.append(divIconpPT);
-                    divIcon.append(span);
-                    divIconp.appendChild(divIconpP);
-                    console.log("showButton",codePic,textDetail,textNum);
-                }
-                if(codePic==200){
-                    console.log("addImage",codePic,textDetail,textNum);
-                }
-                if(codePic==200&&textNum>=35){
-                    console.log("addImage&Text",codePic,textDetail,textNum);
-                }
-                if(textNum>35){
-                    console.log("addText",codePic,textDetail,textNum);
-                }
-            }
-
+            var projectIds=sessionStorage.getItem("projectL").split(",");
             for(let m=0;m<sessionStorage.getItem("allProjects");m++){
-                var url5 = "http://localhost:8080/api/v1/user/program/image?programId="+String(m+1);
+                var projectId =projectIds[m];
+                var url5 = "http://localhost:8080/api/v1/user/program/image?programId="+projectId;
                 $.ajaxSetup({
                     url:encodeURI(url5),
                     type:"GET",
                     processData:true,
                     contentType:"application/json; charset=utf-8",
-                    dataType:"json"
+                    dataType:"json",
+                    async:false
                 });
                 var jqXHR5 = $.ajax();
                 jqXHR5.done(function(response5){
-                    var code = response5.code;
-                    sessionStorage.setItem("code"+String(m+1),code);
+                    console.log("jqXHR5-readyState", jqXHR5.readyState);
+                    if(jqXHR5.readyState==4&&jqXHR4.readyState==4) {
+                        var code = response5.code;
+                        var imageList = response5.images;
+                        var textDetail = sessionStorage.getItem("resDetailT" + projectId);
+                        var textNum = sessionStorage.getItem("resDetailTLength" + projectId);
+                        if (code == 200 || textNum >= 34) {
+                            addButton(projectId);
+                        }
+                        if (code == 200) {
+                            addImage(imageList,projectId);
+                        }
+                        if (code == 200 && textNum >= 34) {
+                            $("#project"+projectId+" .extend").addClass("extend showPicText");
+                            console.log("showImage&Text", code, textDetail, textNum);
+                        }
+                        if(code == 200 && textNum <34){
+                            $("#project"+projectId+" .extend").addClass("extend showPic");
+
+                        }
+                        if (code != 200&&textNum >= 34) {
+                            $("#project"+projectId+" .extend").addClass("extend showText");
+                            $("#project"+projectId+" .extend").attr("id","showText"+projectId);
+                            $("#project"+projectId+" .extend").attr("onclick","showText(this);");
+                        }
+                    }
                 });
             }
-
         })
 
         function showHide() {
             $("#image"+String(i+1)).toggle();
         }
 
-        function pictureResponse(jqXHR,m){
-            jqXHR.done(function(response5){
-                var code = response5.code;
-                if(code==200) {
-//              创建展示图片的小按钮, 如果没有图片,code!=200, 不创建
-                    divContent.className+=" "+"showPicButton"+String(m+1);
-                    showButton();
-                    var imagelist = response5.images;
-                    for(let k=0;k<imagelist.length;k++){
-                        var imageLocation = imagelist[k];
-                        var div = document.createElement('div');
-                        div.style.display="none";
-                        $(".extend").after(div);
-                        var img = document.createElement('img');
-                        div.setAttribute("id","image"+String(m+1));
-                        img.setAttribute("class","imglocation");
-                        img.setAttribute("src",imageLocation);
-                        div.append(img);
-                    }
-                }
-            });
+        function showText(obj){
+            var temp = obj;
+            var s = $(temp).attr("id");
+            var projectId = s.substr(s.length-1,1);
+            var a = $("#resDetail"+projectId).text();
+            if($("#resDetail"+projectId).text()===sessionStorage.getItem("resDetailTShort"+projectId)){
+                $("#resDetail"+projectId).html(sessionStorage.getItem("resDetailT"+projectId));
+                return;
+            }else{
+                $("#resDetail"+projectId).html(sessionStorage.getItem("resDetailTShort"+projectId));
+                return;
+            }
         }
 
-        function showButton(n) {
+//        function pictureResponse(jqXHR,m){
+//            jqXHR.done(function(response5){
+//                var code = response5.code;
+//                if(code==200) {
+////              创建展示图片的小按钮, 如果没有图片,code!=200, 不创建
+//                    divContent.className+=" "+"showPicButton"+String(m+1);
+//                    showButton();
+//                    var imagelist = response5.images;
+//                    for(let k=0;k<imagelist.length;k++){
+//                        var imageLocation = imagelist[k];
+//                        var div = document.createElement('div');
+//                        div.style.display="none";
+//                        $(".extend").after(div);
+//                        var img = document.createElement('img');
+//                        div.setAttribute("id","image"+String(m+1));
+//                        img.setAttribute("class","imglocation");
+//                        img.setAttribute("src",imageLocation);
+//                        div.append(img);
+//                    }
+//                }
+//            });
+//        }
+
+        /*
+        * 添加展现图片的div,并且把图片放入
+        */
+        function addImage(imageList,projectId){
+            for(let k=0;k<imageList.length;k++){
+                var imageLocation = imageList[k];
+                var div = document.createElement('div');
+                div.style.display="none";
+                $("#project"+projectId).append(div);
+                var img = document.createElement('img');
+                div.setAttribute("class","image");
+                img.setAttribute("class","imgLocation");
+                img.setAttribute("src",imageLocation);
+                div.append(img);
+            }
+        }
+
+        /*
+        * 添加展开按钮
+        */
+        function addButton(projectId) {
             var divExtend = document.createElement('div');
             divExtend.setAttribute("class","extend");
-            divExtend.setAttribute("onclick","showHide(m)");
-            $("#project"+String(n+1)).append(divExtend);
+//            divExtend.setAttribute("onclick","showHide(m)");
+            $("#project"+projectId).append(divExtend);
+            console.log("extendParentNode", divExtend.parentNode);
             var divIcon = document.createElement('div');
             divIcon.setAttribute("class","icon");
             var divIconp= document.createElement('div');
@@ -319,24 +359,24 @@
             divIconp.appendChild(divIconpP);
         }
 
-        function showTextButton() {
-            var divExtend = document.createElement('div');
-            divExtend.setAttribute("class","extend");
-            divExtend.setAttribute("onclick","showHide(m)");
-            $(".showTextButton").append(divExtend);
-            var divIcon = document.createElement('div');
-            divIcon.setAttribute("class","icon");
-            var divIconp= document.createElement('div');
-            divIconp.setAttribute("class","iconp");
-            divExtend.append(divIcon);
-            divExtend.append(divIconp);
-            var span = document.createElement('span');
-            var divIconpP= document.createElement('p');
-            var divIconpPT = document.createTextNode("展示");
-            divIconpP.append(divIconpPT);
-            divIcon.append(span);
-            divIconp.appendChild(divIconpP);
-        }
+//        function showTextButton() {
+//            var divExtend = document.createElement('div');
+//            divExtend.setAttribute("class","extend");
+//            divExtend.setAttribute("onclick","showHide(m)");
+//            $(".showTextButton").append(divExtend);
+//            var divIcon = document.createElement('div');
+//            divIcon.setAttribute("class","icon");
+//            var divIconp= document.createElement('div');
+//            divIconp.setAttribute("class","iconp");
+//            divExtend.append(divIcon);
+//            divExtend.append(divIconp);
+//            var span = document.createElement('span');
+//            var divIconpP= document.createElement('p');
+//            var divIconpPT = document.createTextNode("展示");
+//            divIconpP.append(divIconpPT);
+//            divIcon.append(span);
+//            divIconp.appendChild(divIconpP);
+//        }
     </script>
 </head>
 <body>
