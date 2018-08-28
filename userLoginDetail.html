@@ -262,11 +262,17 @@
                         }
                         if (code == 200 && textNum >= 34) {
                             $("#project"+projectId+" .extend").addClass("extend showPicText");
-                            console.log("showImage&Text", code, textDetail, textNum);
+                            $("#project"+projectId+" .extend").attr("id","showPicText"+projectId);
+                            $("#project"+projectId+" .image").addClass("showImages"+projectId);
+                            $("#project"+projectId+" .extend").attr("onclick","showPicText(this);");
+
+//                            console.log("showImage&Text", code, textDetail, textNum);
                         }
                         if(code == 200 && textNum <34){
                             $("#project"+projectId+" .extend").addClass("extend showPic");
-
+                            $("#project"+projectId+" .extend").attr("id","showPic"+projectId);
+                            $("#project"+projectId+" .image").addClass("showImages"+projectId);
+                            $("#project"+projectId+" .extend").attr("onclick","showPic(this);");
                         }
                         if (code != 200&&textNum >= 34) {
                             $("#project"+projectId+" .extend").addClass("extend showText");
@@ -282,11 +288,29 @@
             $("#image"+String(i+1)).toggle();
         }
 
+        function showPicText(obj) {
+            var s = $(obj).attr("id");
+            var projectId = s.substr(s.length-1,1);
+            $(".showImages"+projectId).toggle();
+            if($("#resDetail"+projectId).text()===sessionStorage.getItem("resDetailTShort"+projectId)){
+                $("#resDetail"+projectId).html(sessionStorage.getItem("resDetailT"+projectId));
+                return;
+            }else{
+                $("#resDetail"+projectId).html(sessionStorage.getItem("resDetailTShort"+projectId));
+                return;
+            }
+        }
+
+        function showPic(obj) {
+            var s = $(obj).attr("id");
+            var projectId = s.substr(s.length-1,1);
+            $(".showImages"+projectId).toggle();
+        }
+
         function showText(obj){
             var temp = obj;
             var s = $(temp).attr("id");
             var projectId = s.substr(s.length-1,1);
-            var a = $("#resDetail"+projectId).text();
             if($("#resDetail"+projectId).text()===sessionStorage.getItem("resDetailTShort"+projectId)){
                 $("#resDetail"+projectId).html(sessionStorage.getItem("resDetailT"+projectId));
                 return;
