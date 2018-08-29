@@ -390,6 +390,7 @@ section{
     letter-spacing: 0;
     color: #ff0000;
     margin-top: 2.7%;
+    overflow: hidden;
 }
 
 .investment{
@@ -671,6 +672,30 @@ section{
     letter-spacing: 0;
     color: #333333;
 }
+
+.divSocks{
+    height: 6rem;
+    overflow: hidden;
+}
+
+@keyframes socks{
+    0% {
+        bottom: -3rem;
+    }
+    95% {
+        bottom: 12rem;
+    }
+    100% {
+        bottom: 14rem;
+    }
+}
+
+.socks{
+    -webkit-animation: socks 7s linear infinite;
+    animation: socks 7s linear infinite;
+    position: relative;
+}
+
 
 footer{
     /*border: 1px solid red;*/
