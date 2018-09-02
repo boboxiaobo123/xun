@@ -8,10 +8,11 @@
     <script>
         $(document).ready(function(){
             $("#login").click(function () {
+                var ip = "192.168.0.105:8080";
                 var $username=$("#name").val();
                 var $password=$("#password").val();
                 var dataParam = '{"userName":"'+$username+'","password":"'+$password+'"}';
-                var url = "http://localhost:8080/api/v1/user/login";
+                var url = "http://"+ip+"/api/v1/user/login";
                 $.ajaxSetup({
                     url:encodeURI(url),
                     type:"POST",

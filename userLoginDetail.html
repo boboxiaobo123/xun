@@ -7,9 +7,10 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
+            var ip = "192.168.0.105:8080";
             var userId = sessionStorage.getItem("userId");
 //          获取个人投资信息
-            var url1 = "http://localhost:8080/api/v1/user/program/personal?userId="+userId;
+            var url1 = "http://"+ip+"/api/v1/user/program/personal?userId="+userId;
             $.ajaxSetup({
                 url:encodeURI(url1),
                 type:"GET",
@@ -34,7 +35,7 @@
 //                    var programIds=programIdsString.split(",");
                     for(let i=0;i<programIds.length;i++){
                         var programId = programIds[i];
-                        var url2 = "http://localhost:8080/api/v1/user/program?programId="+programId;
+                        var url2 = "http://"+ip+"/api/v1/user/program?programId="+programId;
                         $.ajaxSetup({
                             url:encodeURI(url2),
                             type:"GET",
@@ -62,7 +63,7 @@
             });
 
 //            获取历史参与项目
-            var url3 = "http://localhost:8080/api/v1/user/program/history?userId="+userId;
+            var url3 = "http://"+ip+"/api/v1/user/program/history?userId="+userId;
             $.ajaxSetup({
                 url:encodeURI(url3),
                 type:"GET",
@@ -91,7 +92,7 @@
             $("#name").text(sessionStorage.getItem("username"));
 
 //            6. 获取所有项目列表, 创建Div, 给出各种class,id=project1
-            var url4 = "http://localhost:8080/api/v1/user/program/all";
+            var url4 = "http://"+ip+"/api/v1/user/program/all";
             $.ajaxSetup({
                 url:encodeURI(url4),
                 type:"GET",
@@ -242,7 +243,7 @@
             var projectIds=sessionStorage.getItem("projectL").split(",");
             for(let m=0;m<sessionStorage.getItem("allProjects");m++){
                 var projectId =projectIds[m];
-                var url5 = "http://localhost:8080/api/v1/user/program/image?programId="+projectId;
+                var url5 = "http://"+ip+"/api/v1/user/program/image?programId="+projectId;
                 $.ajaxSetup({
                     url:encodeURI(url5),
                     type:"GET",
