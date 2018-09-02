@@ -104,10 +104,13 @@ header .headerPic{
     position: relative;
     margin-top:0.7291%;
     width: 100%;
-    background-image: url(img/pic1.png);
-    background-size: 100%;
-    text-align: center;
     overflow: auto;
+}
+
+header .headerPic1{
+    width: 100%;
+    position: absolute;
+    z-index:-1;
 }
 
 header .headerPic h1{
@@ -124,6 +127,7 @@ header .headerPic h1{
     line-height: 1;
     letter-spacing: 0;
     color: #ffffff;
+    text-align: center;
 }
 
 header .headerPic h2{
@@ -142,6 +146,7 @@ header .headerPic h2{
     letter-spacing: 0;
     color: #ffffff;
     border: solid 1px #fffcf5;
+    text-align: center;
 
 }
 
